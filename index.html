@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-profundo: #1a2a6c;
+            --azul-confianza: #2a4858;
+            --celeste-suave: #f0f4f8;
+            --blanco: #ffffff;
+            --texto: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--celeste-suave);
+            color: var(--texto);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            background: var(--blanco);
+            width: 90%;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .header-bg {
+            background: linear-gradient(135deg, var(--azul-profundo), var(--azul-confianza));
+            height: 120px;
+        }
+
+        .photo-container {
+            margin-top: -60px;
+        }
+
+        .photo-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid var(--blanco);
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .content {
+            padding: 20px 30px;
+        }
+
+        h1 {
+            margin: 10px 0 5px;
+            color: var(--azul-profundo);
+            font-size: 1.6rem;
+        }
+
+        .subtitle {
+            color: var(--azul-confianza);
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-cv {
+            background-color: var(--azul-profundo);
+            color: var(--blanco);
+        }
+
+        .btn-cv:hover {
+            background-color: #0f1a4a;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .btn-wsp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-mail {
+            background-color: #e1e7f0;
+            color: var(--azul-profundo);
+        }
+
+        i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header-bg"></div>
+        
+        <div class="photo-container">
+            <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
+        </div>
+
+        <div class="content">
+            <h1>Tu Nombre Aquí</h1>
+            <p class="subtitle">Especialista en Finanzas</p>
+            
+            <p class="description">
+                Graduado con enfoque en análisis cuantitativo y gestión de activos. 
+                Apasionado por transformar datos complejos en estrategias de inversión 
+                solitarias y eficientes.
+            </p>
+
+            <a href="tu-archivo-cv.pdf" class="btn btn-cv" download>
+                <i class="fas fa-file-download"></i> Descargar CV
+            </a>
+
+            <div class="contact-grid">
+                <a href="https://wa.me/tu-numero-aqui" class="btn btn-wsp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                
+                <a href="mailto:tu-email@ejemplo.com" class="btn btn-mail">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
