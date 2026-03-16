@@ -3,163 +3,633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biografía Profesional</title>
+    <title>Perfil Profesional | Consultor Estratégico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
-            --azul-profundo: #1a2a6c;
-            --azul-confianza: #2a4858;
-            --celeste-suave: #f0f4f8;
-            --blanco: #ffffff;
-            --texto: #333333;
+            --primary: #0f172a;   /* Azul Oxford Profundo */
+            --secondary: #1e293b; /* Azul Pizarra */
+            --accent: #3b82f6;    /* Azul Eléctrico (Confianza) */
+            --white: #ffffff;
+            --light-blue: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--celeste-suave);
-            color: var(--texto);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .card {
-            background: var(--blanco);
-            width: 90%;
-            max-width: 450px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: center;
-            padding-bottom: 30px;
-        }
-
-        .header-bg {
-            background: linear-gradient(135deg, var(--azul-profundo), var(--azul-confianza));
-            height: 120px;
-        }
-
-        .photo-container {
-            margin-top: -60px;
-        }
-
-        .photo-container img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid var(--blanco);
-            object-fit: cover;
-            background: #eee;
-        }
-
-        .content {
-            padding: 20px 30px;
-        }
-
-        h1 {
-            margin: 10px 0 5px;
-            color: var(--azul-profundo);
-            font-size: 1.6rem;
-        }
-
-        .subtitle {
-            color: var(--azul-confianza);
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        .description {
-            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--primary);
             line-height: 1.6;
-            color: #555;
-            margin-bottom: 25px;
         }
 
-        .btn {
+        /* --- SECCIÓN HERO (INICIO) --- */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: transform 0.2s, background 0.3s;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 40px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 80px; /* Espacio horizontal generoso */
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .hero-photo img {
+            width: 480px;
+            height: 480px;
+            border-radius: 15%; /* Estilo moderno */
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-info {
+            text-align: left;
+        }
+
+        .hero-info h1 {
+            font-family: 'Cormorant Garamond', serif; /* La nueva fuente profesional */
+            font-size: 4rem;      /* Un poco más grande para lucir la tipografía */
+            font-weight: 700;
+            margin-bottom: 40px; 
+            letter-spacing: -0.5px; /* Menos espacio entre letras para un look más "editorial" */
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .hero-info .tag {
+            display: inline-block;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 50px; /* Espacio entre Puesto y Ubicación */
+        }
+
+        .location-container {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 50px; /* Espacio antes de los botones */
+            display: flex;
+            align-items: center;
+        }
+
+        .location-container i {
+            margin-right: 12px;
+            color: var(--accent);
+        }
+
+        /* Botones del Hero */
+        /* Contenedor de botones: lo hacemos vertical para que cada uno ocupe el ancho */
+        .hero-buttons {
+            display: flex;
+            flex-direction: column; /* Cambiamos a columna para poder controlar el largo */
+            gap: 15px;
+            width: 100%;
+            max-width: 490px; /* Ajustá este número hasta que coincida con el final de 'INDEPENDIENTE' */
+        }
+
+        /* Ajuste individual de los botones */
+        .btn {
+            width: 100%; /* Ahora el botón ocupa todo el ancho del contenedor hero-buttons */
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn-cv {
-            background-color: var(--azul-profundo);
-            color: var(--blanco);
+            border: 2px solid var(--white);
+            color: var(--white);
         }
 
         .btn-cv:hover {
-            background-color: #0f1a4a;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            background: var(--white);
+            color: var(--primary);
         }
 
         .btn-wsp {
-            background-color: #25d366;
+            background: #25d366;
+            color: var(--white);
+        }
+
+        .btn-wsp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-linkedin {
+            background: #0077b5; /* Azul oficial de LinkedIn */
+            color: var(--white);
+        }
+
+        .btn-linkedin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3);
+        }
+
+        /* --- SECCIÓN CONTENIDO (SCROLL) --- */
+        .content-section {
+            padding: 120px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .bio-text {
+            font-size: 1.25rem;
+            color: #475569;
+            margin-bottom: 30px;
+            font-weight: 300;
+            /* --- NUEVOS AJUSTES --- */
+            text-align: justify;       /* Justifica el texto */
+            text-justify: inter-word;  /* Mejora el espaciado entre palabras */
+        }
+
+        /* Cuadrícula de Proyectos */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: var(--light-blue);
+            padding: 40px;
+            border-radius: 4px; /* Bordes rectos para seriedad */
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #64748b;
+        }
+
+        /* Alineación de las columnas principales */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Control del bloque de cualidades */
+        .soft-skills-vertical {
+            display: flex;
+            flex-direction: column;
+            /* Ajustá este gap (ej. 12px o 14px) hasta que la última cualidad 
+            se alinee visualmente con el borde inferior de la caja de Abbaco */
+            gap: 20px; 
+        }
+
+
+        /* Separación de la frase final */
+        .ethics-text {
+            margin-top: 25px; 
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #94a3b8;
+        }
+        .skill-block {
+            margin-bottom: 50px; /* Espacio base */
+        }
+
+        .skill-block.no-margin {
+            margin-bottom: 0; /* El último bloque no necesita margen inferior */
+        }
+
+        /* Ajuste fino para los textos de abajo */
+        .levels-note, .ethics-text {
+            margin-top: 15px;
+            min-height: 1.2em; /* Asegura que ocupen el mismo alto de línea */
+        }
+
+        /* Cambiá esto para que coincida con tu nueva estructura */
+        .skill-block h3 {
+            font-size: 0.9rem; /* Un poco más pequeño queda más elegante */
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Más espacio entre letras da un aire más premium */
+            font-weight: 700;
+        }
+
+        /* Lista de Habilidades */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        .skills-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Grid de Herramientas e Iconos */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--light-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .tool-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .tool-item:hover {
+            background: var(--primary);
             color: white;
         }
 
-        .btn-mail {
-            background-color: #e1e7f0;
-            color: var(--azul-profundo);
+        .tool-item:hover i {
+            color: var(--accent);
         }
 
-        i {
-            margin-right: 8px;
+        /* Contenedor de las dos columnas */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .skill-block {
+            margin-bottom: 40px;
+        }
+
+        .mini-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 700;
+            opacity: 0.8;
+        }
+
+        /* Stack de herramientas con cajas pulidas */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .levels-note {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Idiomas con diseño de línea */
+        .lang-card p {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 1.05rem;
+        }
+
+        .lang-card span { color: #64748b; }
+
+        /* Cualidades Profesionales (Tags suaves) */
+                /* Estilo unificado para ambos tipos de cajas */
+        .tool-item, .tag-soft-v {
+            padding: 12px 16px;       /* Mismo aire interno */
+            border-radius: 8px;       /* Misma redondez */
+            font-size: 0.95rem;       /* Mismo tamaño de letra */
+            font-weight: 500;
+            border: 1px solid #e2e8f0; /* Mismo borde sutil */
+            height: 48px;             /* Altura fija para asegurar simetría total */
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        /* Color de fondo específico para Herramientas */
+        .tool-item {
+            background: var(--light-blue);
+            gap: 12px;
+        }
+
+        /* Color de fondo específico para Cualidades */
+        .tag-soft-v {
+            background: #f8fafc;
+            color: #475569;
+            width: 100%; /* Asegura que ocupe todo el ancho de su columna */
+        }
+
+        /* Contenedor de Cualidades: ajustamos el gap para que coincida con la grilla de la izquierda */
+        .soft-skills-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Espacio uniforme entre cajas */
+        }
+
+        .tag-soft-v:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .ethics-text {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container { grid-template-columns: 1fr; }
+        }
+
+        /* Adaptación para móviles */
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .hero-info { text-align: center; }
+            .hero-info h1 { font-size: 3rem; }
+            .hero-buttons { justify-content: center; }
+            .hero-photo img { width: 250px; height: 250px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="header-bg"></div>
-        
-        <div class="photo-container">
-            <img src="https://via.placeholder.com/150" alt="Foto de Perfil">
-        </div>
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-photo">
+                <img src="foto_perfil.jpg" alt="Foto Profesional">
+            </div>
 
-        <div class="content">
-            <h1>Tu Nombre Aquí</h1>
-            <p class="subtitle">Especialista en Finanzas</p>
-            
-            <p class="description">
-                Graduado con enfoque en análisis cuantitativo y gestión de activos. 
-                Apasionado por transformar datos complejos en estrategias de inversión 
-                solitarias y eficientes.
-            </p>
-
-            <a href="tu-archivo-cv.pdf" class="btn btn-cv" download>
-                <i class="fas fa-file-download"></i> Descargar CV
-            </a>
-
-            <div class="contact-grid">
-                <a href="https://wa.me/tu-numero-aqui" class="btn btn-wsp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+            <div class="hero-info">
+                <h1>Evelyn Giselle Muratore</h1>
+                <span class="tag">Analista de Inversiones & Consultora Independiente </span>
                 
-                <a href="mailto:tu-email@ejemplo.com" class="btn btn-mail">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
+                <div class="location-container">
+                    <p><i class="fas fa-map-marker-alt"></i> Rosario, Santa Fe, Argentina</p>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="CV - Evelyn Giselle Muratore.pdf" class="btn btn-cv" target="_blank">
+                      <i class="fas fa-file-pdf" style="margin-right: 12px;"></i> Descargar CV
+                    </a>
+                    <a href="https://wa.me/5493415032578" class="btn btn-wsp" target="_blank">
+                        <i class="fab fa-whatsapp" style="margin-right: 12px;"></i> WhatsApp
+                    </a>
+                    <a href="https://www.linkedin.com/in/evelyn-giselle-muratore-119173195/" class="btn btn-linkedin" target="_blank">
+                        <i class="fab fa-linkedin" style="margin-right: 12px;"></i> LinkedIn
+                    </a>
+                </div>
             </div>
         </div>
+    </header>
+
+    <section class="content-section" id="sobre-mi">
+        <h2 class="section-title">Sobre Mí</h2>
+        <p class="bio-text">
+           Evelyn Giselle Muratore es Licenciada en Finanzas, egresada de 
+           la <b>Universidad de San Andrés</b>, con un perfil académico
+           orientado a las finanzas cuantitativas y los mercados de capitales.  
+        </p>
+        <p class="bio-text">
+            Actualmente se desempeña como <b>Analista de Inversiones</b> en 
+            <b>Tarallo SA</b>, donde gestiona operaciones bursátiles y forma
+             parte de un equipo que monitorea un Fondo Común de Inversión de 
+             Renta Mixta y otro compuesto principalmente por productos PyMEs 
+             garantizados. En su rol, analiza carteras de inversión para 
+             distintos perfiles de riesgo, realiza informes semanales a equipos
+              comerciales y diseña e implementa algoritmos financieros. 
+        </p>
+        <p class="bio-text">
+            A su vez, es auxiliar docente en la materia <b>Taller Trabajo de Graduación Finanzas</b> 
+            en la <b>Universidad de San Andrés</b> y su responsabilidad
+            se centra en la gestión de documentación y seguimiento de asistencia. 
+        </p>
+        <p class="bio-text">
+            En el ámbito académico, ha colaborado como Ayudante de Cátedra en 
+            la materia Programación Aplicada a Finanzas en la 
+            <b>Universidad de San Andrés</b> y cuenta con experiencia en 
+            procesos de <i>KYC & Reference Data</i> en <b>JP Morgan Chase & Co</b>. 
+            Sus líneas de interés se centran en el <i>Portfolio Management</i>, 
+            el desarrollo e implementación de algoritmos financieros y 
+            la gestión de riesgos. 
+        </p>
+    </section>
+
+
+    <section class="content-section" id="skills">
+        <h2 class="section-title">Habilidades y Herramientas</h2>
+        
+        <div class="skills-container">
+            <div class="skills-column-flex">
+                <div class="skill-block">
+                    <h3 class="mini-title">Foco Estratégico</h3>
+                    <ul class="skills-list">
+                        <li>Análisis de <b>Mercado de Capitales</b></li>
+                        <li>Valuación de Activos y Renta Fija</li>
+                        <li>Diseño de <b>Estrategias de Inversión</b></li>
+                        <li>Modelado de Riesgo y Portafolios</li>
+                        <li>Elaboración de <b>Reportes</b> técnicos</li>
+                    </ul>
+                </div>
+
+                <div class="skill-block no-margin">
+                    <h3 class="mini-title">Stack Tecnológico</h3>
+                    <div class="tools-grid">
+                        <div class="tool-item"><i class="fab fa-python"></i><span>Python</span></div>
+                        <div class="tool-item"><i class="fas fa-file-excel"></i><span>Excel / VBA</span></div>
+                        <div class="tool-item"><i class="fas fa-chart-line"></i><span>Bloomberg</span></div>
+                        <div class="tool-item"><i class="fas fa-calculator"></i><span>Stata</span></div>
+                        <div class="tool-item"><i class="fas fa-file-code"></i><span>LaTeX</span></div>
+                        <div class="tool-item"><i class="fas fa-university"></i><span>Abbaco</span></div>
+                    </div>
+                    <div class="levels-note">
+                        <p><strong>Avanzado:</strong> Python, Excel | <strong>Otros:</strong> Stata, SQL, Word</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-column-flex">
+                <div class="skill-block" style="margin-bottom: 25px;"> 
+                    <h3 class="mini-title">Idiomas</h3>
+                    <div class="lang-card">
+                        <p><span>Español</span> <strong>Nativo</strong></p>
+                        <p><span>Inglés</span> <strong>Intermedio / Avanzado</strong></p>
+                    </div>
+                </div>
+
+                <div class="skill-block no-margin">
+                    <h3 class="mini-title">Cualidades Profesionales</h3>
+                    <div class="soft-skills-vertical">
+                        <span class="tag-soft-v">Confidencialidad</span>
+                        <span class="tag-soft-v">Integridad</span>
+                        <span class="tag-soft-v">Organización</span>
+                        <span class="tag-soft-v">Responsabilidad</span>
+                        <span class="tag-soft-v">Atención al detalle</span>
+                    </div>
+                    <p class="ethics-text">Compromiso con la ética profesional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="content-section" id="proyectos" style="background-color: #fcfcfc; max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Red Neuronal CNN</h3>
+                    <p>Clasificación de características de los procesos 
+                        estocásticos. Análisis de la capacidad para 
+                        reconocer tendencia, estacionalidad y 
+                        <i>clusters</i> de volatilidad.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Simulador de Préstamos UVA</h3>
+                    <p>Herramienta robusta bajo sistema francés para 
+                        la proyección y análisis de créditos indexados.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Calculadora de Bonos</h3>
+                    <p>Algoritmo de valuación de activos de renta fija 
+                        con análisis de sensibilidad y duration.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Planilla de Control de Gastos</h3>
+                    <p>Planilla de Excel que completas por mes con tus 
+                        gastos y calcula estadísticas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <h2 style="margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;">Hablemos.</h2>
+    <p style="margin-bottom: 30px; opacity: 0.7;">¿Tenés un proyecto en mente o buscás un analista financiero?</p>
+    
+    <div class="social-links" style="margin-bottom: 40px; display: flex; justify-content: center; gap: 20px;">
+        <a href="mailto:evemuratore23@gmail.com" style="color: white; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/evelyn-giselle-muratore-119173195/" target="_blank" style="color: white; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/5493415032578" target="_blank" style="color: white; font-size: 1.5rem;"><i class="fab fa-whatsapp"></i></a>
     </div>
+
+    <p style="font-weight: 600; margin-bottom: 10px;">evemuratore23@gmail.com</p>
+    <p style="opacity: 0.6; font-size: 0.9rem;">&copy; 2026 Evelyn Giselle Muratore | Rosario, Argentina</p>
+    </footer>
 
 </body>
 </html>
