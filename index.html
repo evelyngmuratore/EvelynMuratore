@@ -464,13 +464,15 @@
             .hero-buttons { justify-content: center; }
             .hero-photo img { width: 250px; height: 250px; }
         }
+        /* Adaptación para móviles (menos de 768px) */
         @media (max-width: 768px) {
             .hero-photo img { 
-                width: 200px; /* Un poco más pequeña para que respire el texto */
-                height: 200px; 
-                object-fit: cover; /* Crucial: evita que la foto se deforme */
-                border-radius: 50%; /* Si es circular */
-                margin: 0 auto; 
+                width: 100%;       /* O un tamaño fijo como 200px, pero relativo es mejor */
+                height: 200px;     /* Ajusta la altura según lo que necesites */
+                object-fit: cover; /* ¡ESTA ES LA SOLUCIÓN! */
+                object-position: center; /* Opcional: centra la parte visible de la foto */
+                border-radius: 50%; /* Si quieres que sea circular, asegúrate que width y height sean iguales */
+                margin: 0 auto;    /* Centra la imagen horizontalmente */
             }
         }
 
