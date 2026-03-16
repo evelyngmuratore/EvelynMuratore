@@ -8,494 +8,234 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #0f172a;   /* Azul Oxford Profundo */
-            --secondary: #1e293b; /* Azul Pizarra */
-            --accent: #3b82f6;    /* Azul Eléctrico (Confianza) */
-            --white: #ffffff;
-            --light-blue: #f1f5f9;
-            --text-muted: #94a3b8;
-        }
+    :root {
+        --primary: #0f172a;   /* Azul Oxford Profundo */
+        --secondary: #1e293b; /* Azul Pizarra */
+        --accent: #3b82f6;    /* Azul Eléctrico */
+        --white: #ffffff;
+        --light-blue: #f1f5f9;
+        --text-muted: #94a3b8;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--white);
-            color: var(--primary);
-            line-height: 1.6;
-        }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--white);
+        color: var(--primary);
+        line-height: 1.6;
+    }
 
-        /* --- SECCIÓN HERO (INICIO) --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 40px;
-        }
+    /* --- SECCIÓN HERO --- */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        padding: 60px 20px;
+    }
 
+    .hero-container {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    .hero-photo img {
+        width: 450px;
+        height: 450px;
+        border-radius: 15%; 
+        object-fit: cover;
+        object-position: center;
+        border: 6px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-info {
+        text-align: left;
+        flex: 1;
+    }
+
+    .hero-info h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+
+    .hero-info .tag {
+        display: inline-block;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--accent);
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .location-container {
+        font-size: 1.1rem;
+        opacity: 0.8;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+    .location-container i { margin-right: 12px; color: var(--accent); }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 16px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .btn-cv { border: 2px solid var(--white); color: var(--white); }
+    .btn-cv:hover { background: var(--white); color: var(--primary); }
+    .btn-wsp { background: #25d366; color: var(--white); }
+    .btn-linkedin { background: #0077b5; color: var(--white); }
+
+    /* --- SECCIÓN CONTENIDO (SKILLS & PROYECTOS) --- */
+    .content-section {
+        padding: 100px 20px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 60px;
+        height: 4px;
+        background: var(--accent);
+    }
+
+    /* Grid de Habilidades */
+    .skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .mini-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--secondary);
+        margin-bottom: 25px;
+        font-weight: 700;
+    }
+
+    .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .tool-item, .tag-soft-v {
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border: 1px solid #e2e8f0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+
+    .tool-item { background: var(--light-blue); gap: 12px; }
+    .tag-soft-v { background: #f8fafc; color: #475569; width: 100%; }
+    .soft-skills-vertical { display: flex; flex-direction: column; gap: 12px; }
+
+    .lang-card p {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    /* --- RESPONSIVE (MÓVIL) --- */
+    @media (max-width: 992px) {
+        .hero { padding: 40px 20px; }
+        
         .hero-container {
-            display: flex;
-            align-items: center;
-            gap: 80px; /* Espacio horizontal generoso */
-            max-width: 1200px;
-            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            gap: 30px;
         }
+
+        .hero-info { text-align: center; }
 
         .hero-photo img {
-            width: 480px;
-            height: 480px;
-            border-radius: 15%; /* Estilo moderno */
-            object-fit: cover;
-            border: 6px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%; /* Foto circular en móvil */
         }
 
-        .hero-info {
-            text-align: left;
-        }
+        .hero-info h1 { font-size: 2.5rem; }
+        .hero-info .tag { font-size: 1.1rem; }
 
-        .hero-info h1 {
-            font-family: 'Cormorant Garamond', serif; /* La nueva fuente profesional */
-            font-size: 4rem;      /* Un poco más grande para lucir la tipografía */
-            font-weight: 700;
-            margin-bottom: 40px; 
-            letter-spacing: -0.5px; /* Menos espacio entre letras para un look más "editorial" */
-            line-height: 1;
-            color: var(--white);
-        }
-
-        .hero-info .tag {
-            display: inline-block;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 50px; /* Espacio entre Puesto y Ubicación */
-        }
-
-        .location-container {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            margin-bottom: 50px; /* Espacio antes de los botones */
-            display: flex;
-            align-items: center;
-        }
-
-        .location-container i {
-            margin-right: 12px;
-            color: var(--accent);
-        }
-
-        /* Botones del Hero */
-        /* Contenedor de botones: lo hacemos vertical para que cada uno ocupe el ancho */
         .hero-buttons {
-            display: flex;
-            flex-direction: column; /* Cambiamos a columna para poder controlar el largo */
-            gap: 15px;
-            width: 100%;
-            max-width: 490px; /* Ajustá este número hasta que coincida con el final de 'INDEPENDIENTE' */
-        }
-
-        /* Ajuste individual de los botones */
-        .btn {
-            width: 100%; /* Ahora el botón ocupa todo el ancho del contenedor hero-buttons */
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-cv {
-            border: 2px solid var(--white);
-            color: var(--white);
-        }
-
-        .btn-cv:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        .btn-wsp {
-            background: #25d366;
-            color: var(--white);
-        }
-
-        .btn-wsp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-linkedin {
-            background: #0077b5; /* Azul oficial de LinkedIn */
-            color: var(--white);
-        }
-
-        .btn-linkedin:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3);
-        }
-
-        /* --- SECCIÓN CONTENIDO (SCROLL) --- */
-        .content-section {
-            padding: 120px 20px;
-            max-width: 900px;
             margin: 0 auto;
+            max-width: 100%;
         }
 
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-        }
-
-        .bio-text {
-            font-size: 1.25rem;
-            color: #475569;
-            margin-bottom: 30px;
-            font-weight: 300;
-            /* --- NUEVOS AJUSTES --- */
-            text-align: justify;       /* Justifica el texto */
-            text-justify: inter-word;  /* Mejora el espaciado entre palabras */
-        }
-
-        /* Cuadrícula de Proyectos */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .project-card {
-            background: var(--light-blue);
-            padding: 40px;
-            border-radius: 4px; /* Bordes rectos para seriedad */
-            border-top: 4px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .project-card p {
-            color: #64748b;
-        }
-
-        /* Alineación de las columnas principales */
         .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
+            grid-template-columns: 1fr;
+            gap: 40px;
         }
 
-        /* Control del bloque de cualidades */
-        .soft-skills-vertical {
-            display: flex;
-            flex-direction: column;
-            /* Ajustá este gap (ej. 12px o 14px) hasta que la última cualidad 
-            se alinee visualmente con el borde inferior de la caja de Abbaco */
-            gap: 20px; 
-        }
-
-
-        /* Separación de la frase final */
-        .ethics-text {
-            margin-top: 25px; 
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #94a3b8;
-        }
-        .skill-block {
-            margin-bottom: 50px; /* Espacio base */
-        }
-
-        .skill-block.no-margin {
-            margin-bottom: 0; /* El último bloque no necesita margen inferior */
-        }
-
-        /* Ajuste fino para los textos de abajo */
-        .levels-note, .ethics-text {
-            margin-top: 15px;
-            min-height: 1.2em; /* Asegura que ocupen el mismo alto de línea */
-        }
-
-        /* Cambiá esto para que coincida con tu nueva estructura */
-        .skill-block h3 {
-            font-size: 0.9rem; /* Un poco más pequeño queda más elegante */
-            margin-bottom: 25px;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px; /* Más espacio entre letras da un aire más premium */
-            font-weight: 700;
-        }
-
-        /* Lista de Habilidades */
-        .skills-list {
-            list-style: none;
-        }
-
-        .skills-list li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-            font-size: 1.1rem;
-            color: #475569;
-        }
-
-        .skills-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Grid de Herramientas e Iconos */
         .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            grid-template-columns: 1fr;
         }
-
-        .tool-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px;
-            background: var(--light-blue);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .tool-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .tool-item span {
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .tool-item:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .tool-item:hover i {
-            color: var(--accent);
-        }
-
-        /* Contenedor de las dos columnas */
-        .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .skill-block {
-            margin-bottom: 40px;
-        }
-
-        .mini-title {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--secondary);
-            margin-bottom: 25px;
-            font-weight: 700;
-            opacity: 0.8;
-        }
-
-        /* Stack de herramientas con cajas pulidas */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .tool-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 15px;
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .tool-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .levels-note {
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        /* Idiomas con diseño de línea */
-        .lang-card p {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-            font-size: 1.05rem;
-        }
-
-        .lang-card span { color: #64748b; }
-
-        /* Cualidades Profesionales (Tags suaves) */
-                /* Estilo unificado para ambos tipos de cajas */
-        .tool-item, .tag-soft-v {
-            padding: 12px 16px;       /* Mismo aire interno */
-            border-radius: 8px;       /* Misma redondez */
-            font-size: 0.95rem;       /* Mismo tamaño de letra */
-            font-weight: 500;
-            border: 1px solid #e2e8f0; /* Mismo borde sutil */
-            height: 48px;             /* Altura fija para asegurar simetría total */
-            display: flex;
-            align-items: center;
-            transition: all 0.2s ease;
-        }
-
-        /* Color de fondo específico para Herramientas */
-        .tool-item {
-            background: var(--light-blue);
-            gap: 12px;
-        }
-
-        /* Color de fondo específico para Cualidades */
-        .tag-soft-v {
-            background: #f8fafc;
-            color: #475569;
-            width: 100%; /* Asegura que ocupe todo el ancho de su columna */
-        }
-
-        /* Contenedor de Cualidades: ajustamos el gap para que coincida con la grilla de la izquierda */
-        .soft-skills-vertical {
-            display: flex;
-            flex-direction: column;
-            gap: 12px; /* Espacio uniforme entre cajas */
-        }
-
-        .tag-soft-v:hover {
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        .ethics-text {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            font-style: italic;
-            color: #94a3b8;
-        }
-
-        @media (max-width: 768px) {
-            .skills-container { grid-template-columns: 1fr; }
-        }
-
-        /* Adaptación para móviles */
-        @media (max-width: 768px) {
-            .skills-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 992px) {
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-            }
-            .hero-info { text-align: center; }
-            .hero-info h1 { font-size: 3rem; }
-            .hero-buttons { justify-content: center; }
-            .hero-photo img { width: 250px; height: 250px; }
-        }
-        /* Adaptación para móviles (menos de 768px) */
-        @media (max-width: 768px) {
-            .hero-photo img { 
-                width: 100%;       /* O un tamaño fijo como 200px, pero relativo es mejor */
-                height: 200px;     /* Ajusta la altura según lo que necesites */
-                object-fit: cover; /* ¡ESTA ES LA SOLUCIÓN! */
-                object-position: center; /* Opcional: centra la parte visible de la foto */
-                border-radius: 50%; /* Si quieres que sea circular, asegúrate que width y height sean iguales */
-                margin: 0 auto;    /* Centra la imagen horizontalmente */
-            }
-        }
-
-        /* Para tablets y móviles */
-        @media (max-width: 768px) {
-            .skills-container { 
-                display: flex; /* O grid, pero mantén uno solo */
-                flex-direction: column; 
-                gap: 30px; /* Espacio entre habilidades */
-                padding: 0 20px; /* Margen interno para que no toquen los bordes */
-            }
-
-            .hero-container {
-                padding: 40px 20px; /* Reduce el relleno exagerado en móviles */
-            }
-
-            .hero-info h1 { 
-                font-size: 2.2rem; /* Tamaño de letra más manejable para el celu */
-                line-height: 1.2;
-            }
-        }
-
         
+        .content-section { padding: 60px 20px; }
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        background: var(--primary);
+        color: var(--white);
+        padding: 60px 20px;
+        text-align: center;
+    }
     </style>
 </head>
 <body>
