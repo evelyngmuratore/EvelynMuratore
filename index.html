@@ -150,27 +150,21 @@
                 margin: 0 auto;
             }
         }
-        
+        .content-section {
+            padding: 120px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .bio-text {
             font-size: 1.25rem;
             color: #475569;
             margin-bottom: 30px;
             font-weight: 300;
-            /* --- NUEVOS AJUSTES --- */
             text-align: justify;       /* Justifica el texto */
             text-justify: inter-word;  /* Mejora el espaciado entre palabras */
         }
 
-        /* El truco para separar los párrafos */
-        .bio-text p {
-            margin-bottom: 25px; /* Espacio entre cada bloque de texto */
-            display: block;
-        }
-        
-        /* Para que el último párrafo no tenga un margen extra innecesario */
-        .bio-text p:last-child {
-            margin-bottom: 0;
-        }
         
         @media (max-width: 768px) {
             .bio-text {
