@@ -173,6 +173,264 @@
                 text-align: left; /* A veces el justify queda raro en pantallas muy angostas */
             }
         }
+        
+        /* Cuadrícula de Proyectos */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: var(--light-blue);
+            padding: 40px;
+            border-radius: 4px; /* Bordes rectos para seriedad */
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #64748b;
+        }
+
+        /* Alineación de las columnas principales */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Control del bloque de cualidades */
+        .soft-skills-vertical {
+            display: flex;
+            flex-direction: column;
+            /* Ajustá este gap (ej. 12px o 14px) hasta que la última cualidad 
+            se alinee visualmente con el borde inferior de la caja de Abbaco */
+            gap: 20px; 
+        }
+
+
+        /* Separación de la frase final */
+        .ethics-text {
+            margin-top: 25px; 
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #94a3b8;
+        }
+        .skill-block {
+            margin-bottom: 50px; /* Espacio base */
+        }
+
+        .skill-block.no-margin {
+            margin-bottom: 0; /* El último bloque no necesita margen inferior */
+        }
+
+        /* Ajuste fino para los textos de abajo */
+        .levels-note, .ethics-text {
+            margin-top: 15px;
+            min-height: 1.2em; /* Asegura que ocupen el mismo alto de línea */
+        }
+
+        /* Cambiá esto para que coincida con tu nueva estructura */
+        .skill-block h3 {
+            font-size: 0.9rem; /* Un poco más pequeño queda más elegante */
+            margin-bottom: 25px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Más espacio entre letras da un aire más premium */
+            font-weight: 700;
+        }
+
+        /* Lista de Habilidades */
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            color: #475569;
+        }
+
+        .skills-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Grid de Herramientas e Iconos */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--light-blue);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .tool-item span {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .tool-item:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tool-item:hover i {
+            color: var(--accent);
+        }
+
+        /* Contenedor de las dos columnas */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .skill-block {
+            margin-bottom: 40px;
+        }
+
+        .mini-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-weight: 700;
+            opacity: 0.8;
+        }
+
+        /* Stack de herramientas con cajas pulidas */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .levels-note {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Idiomas con diseño de línea */
+        .lang-card p {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 1.05rem;
+        }
+
+        .lang-card span { color: #64748b; }
+
+        /* Cualidades Profesionales (Tags suaves) */
+                /* Estilo unificado para ambos tipos de cajas */
+        .tool-item, .tag-soft-v {
+            padding: 12px 16px;       /* Mismo aire interno */
+            border-radius: 8px;       /* Misma redondez */
+            font-size: 0.95rem;       /* Mismo tamaño de letra */
+            font-weight: 500;
+            border: 1px solid #e2e8f0; /* Mismo borde sutil */
+            height: 48px;             /* Altura fija para asegurar simetría total */
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        /* Color de fondo específico para Herramientas */
+        .tool-item {
+            background: var(--light-blue);
+            gap: 12px;
+        }
+
+        /* Color de fondo específico para Cualidades */
+        .tag-soft-v {
+            background: #f8fafc;
+            color: #475569;
+            width: 100%; /* Asegura que ocupe todo el ancho de su columna */
+        }
+
+        /* Contenedor de Cualidades: ajustamos el gap para que coincida con la grilla de la izquierda */
+        .soft-skills-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Espacio uniforme entre cajas */
+        }
+
+        .tag-soft-v:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .ethics-text {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            .skills-container { grid-template-columns: 1fr; }
+        }
+
+        /* Adaptación para móviles */
+        @media (max-width: 768px) {
+            .skills-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
     </style>
 </head>
 <body>
